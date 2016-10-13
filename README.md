@@ -12,7 +12,7 @@ rm -rf mp3_starter.git
 
 git clone https://github.com/your-github-username/mp3.git
 cd mp3
-npm install
+npm install (remember to use --no-bin-links if you're on Windows)
 bower install
 grunt compass
 grunt uglify
