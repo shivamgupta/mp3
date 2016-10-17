@@ -1,0 +1,52 @@
+<a href="#list" class="btn btn-info gallery_btn"> List </a>
+<div class="container main-content" ng-controller="MoviesGalleryController" >
+
+    <div >
+        <div >
+            <form class="form-inline well" >
+
+                <span style="padding-right: 50px;"> Select Genre: </span>
+                <span class="glyphicon glyphicon-sort-by-attributes" ></span >
+
+                <div class="form-group" >
+                    <select class="form-control" ng-model="genre">
+                        <option value="Crime" >Crime</option >
+                        <option value="Drama" >Drama</option >
+                        <option value="Action" >Action</option >
+                        <option value="Thriller" >Thriller</option >
+                        <option value="Biography" >Biography</option >
+                        <option value="History" >History</option >
+                        <option value="Western" >Western</option >
+                        <option value="Adventure" >Adventure</option >
+                        <option value="Fantasy" >Fantasy</option >
+                        <option value="Romance" >Romance</option >
+                        <option value="Mystery" >Mystery</option >
+                        <option value="Sci-Fi" >Sci-Fi</option >
+                        <option value="Family" >Family</option >
+                        <option value="War" >War</option >
+                        <option value="Comedy" >Comedy</option >
+                        <option value="Animation" >Animation</option >
+                        <option value="Horror" >Horror</option >
+                        <option value="Music" >Music</option >
+                        <option value="Film-Noir" >Film-Noir</option >
+                    </select >
+                </div >
+
+            </form >
+        </div >
+    </div>
+
+
+    <!-- Page Content -->
+    <div>
+        <div>
+            <div ng-repeat="movie in filteredMovies = (movies | filter:genre)">
+                <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                    <a href="#details/{{movie.rank}}">
+                        <img class="gallery_img" src="../data/images/{{movie.imdbID}}.jpg" alt="">
+                    </a>
+                </div>
+            </div >
+        </div>
+    </div >
+</div>
