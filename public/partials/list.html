@@ -1,0 +1,84 @@
+<a href="#gallery" class="btn btn-info gallery_btn"> Gallery </a>
+<div class="container main-content" ng-controller="MoviesListController" >
+    
+    <div >
+        <div class="col-md-12" >
+            <form class="form-inline well well-sm" >
+                <span class="glyphicon glyphicon-search" ></span >
+
+                <div class="form-group" style="padding-right:150px; padding-top:10px;">
+                        <input type="text"
+                               class="form-control"
+                               id="title"
+                               ng-model="search"
+                               placeholder="Search title... "
+                                />
+                </div >
+
+                <span class="glyphicon glyphicon-sort-by-attributes" ></span >
+
+                <div class="form-group" >
+                    <select class="form-control" ng-model="order">
+                        <option value="title" >Title (ASC)</option >
+                        <option value="-title" >Title (DEC)</option >
+                        <option value="rank" >Rank (ASC)</option >
+                        <option value="-rank" >Rank (DEC)</option >
+                        <option value="director" >Director (ASC)</option >
+                        <option value="-director" >Director (DEC)</option >
+                    </select >
+                </div >
+
+            </form >
+        </div >
+    </div>
+
+
+    <div>
+        <div>
+
+            <table class="table table-bordered" >
+
+                <tr >
+                    <th>Rank
+                        <span ng-click="order = 'rank'" class="glyphicon glyphicon-menu-up"></span>
+                        <span ng-click="order = '-rank'" class="glyphicon glyphicon-menu-down"></span>
+                    </th >
+                    <th>Poster</th>
+                    <th >Title
+                        <span ng-click="order = 'title'" class="glyphicon glyphicon-menu-up"></span>
+                        <span ng-click="order = '-title'" class="glyphicon glyphicon-menu-down"></span>
+                    </th >
+                    <th >Director
+                        <span ng-click="order = 'director'" class="glyphicon glyphicon-menu-up"></span>
+                        <span ng-click="order = '-director'" class="glyphicon glyphicon-menu-down"></span>
+                    </th >
+                    <th> Release Date </th>
+                    <th> Details </th>
+                </tr >
+
+                <tr ng-repeat="movie in filteredMovies = (movies | filter:sensitiveSearch | orderBy:order)"
+                    ng-style="{
+                             'background-color': $index == selectedRank ? 'lightgray' : ''
+                        }"
+                    ng-click="selectMovie(movie, $index)" >
+                    <td >{{ movie.rank }}</td >
+                    <td > <a href="#details/{{movie.rank}}"><img src="../data/images/{{movie.imdbID}}.jpg" style="max-height:100px;"></a> </td >
+                    <td >{{ movie.title }}</td >
+                    <td >{{ movie.director[0] }}</td >
+                    <td >{{ movie.released }}</td >
+                    <td ><a href="#details/{{movie.rank}}"> View </a></td>
+                </tr >
+
+                <tr ng-show="filteredMovies.length == 0">
+                    <td colspan="4">
+                        <div class="alert alert-info">
+                            <p class="text-center">Too bad '{{ search }}' couldn't make it to top 250.</p>
+                        </div>
+                    </td>
+                </tr>
+
+
+            </table >
+        </div >
+    </div >
+</div >
