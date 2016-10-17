@@ -1,1 +1,39 @@
 // Add any custom Sass & CSS here
+
+body {
+  padding-top: 50px;
+}
+.main-content {
+  padding: 40px 15px;
+}
+
+.gallery_btn{
+	width: 100%;
+	position: auto;
+}
+
+.gallery_img{
+	max-height: 300px;
+	max-width: 300px;
+	min-height: 300px;
+	min-width: 300px;
+	padding: 10px 10px;
+	filter: gray;
+	filter: grayscale(1);
+	-webkit-filter: grayscale(1);
+}
+
+.gallery_img:hover{
+	transform: scale(1.1);
+	transition: all .2s ease-in-out;
+	filter: none;
+	-webkit-filter: grayscale(0);
+}
+
+.btn_grid{
+	align-items: center;
+}
+
+.genre_drop{
+	padding-right:40%;
+}
