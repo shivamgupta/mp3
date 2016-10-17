@@ -1,0 +1,51 @@
+<a href="#list" class="btn btn-info gallery_btn"> List </a>
+<a href="#gallery" class="btn btn-info gallery_btn"> Gallery </a>
+<div class=" main-content" ng-controller="MoviesDetailsController" >
+
+    <div>
+        <div>
+            <div class="panel panel-default details" >
+                <div class="panel-heading" >Details</div >
+                <div class="panel-body" >
+                    <button class="btn btn-success" ng-click="previous()">previous</button>
+                     <button class="btn btn-success" ng-click="next()">next</button>
+
+                    <dl >
+                        <dt >Poster </dt>
+                        <dd><img src="./data/images/{{selectedMovie.imdbID}}.jpg"> </dd>
+                        <dt >Title</dt >
+                        <dd >{{selectedMovie.title}}</dd >
+                        <dt >Rank</dt >
+                        <dd >{{selectedMovie.rank}}</dd >
+                        <dt >Rated</dt >
+                        <dd >{{selectedMovie.rated}}</dd >
+                        <dt >Release Date</dt >
+                        <dd >{{selectedMovie.released }}</dd >
+                        <dt >Runtime</dt >
+                        <dd >{{selectedMovie.runtime}}</dd >
+                        <dt >Genre</dt >
+                        <dd ng-repeat="gen in selectedMovie.genre">{{gen}}</dd >
+                        <dt >Director</dt >
+                        <dd >{{selectedMovie.director}}</dd >
+                        <dt >Actors</dt >
+                        <dd >{{selectedMovie.actors}}</dd >
+                        <dt >Plot</dt >
+                        <dd >{{selectedMovie.plot}}</dd >
+                        <dt >Language</dt >
+                        <dd >{{selectedMovie.language}}</dd >
+                        <dt >Country</dt >
+                        <dd >{{selectedMovie.country}}</dd >
+                        <dt >Awards</dt >
+                        <dd >{{selectedMovie.awards}}</dd >
+                        <dt >imdb-Rating</dt >
+                        <dd >{{selectedMovie.imdbRating}}</dd >
+                        <dt >imdb-Votes</dt >
+                        <dd >{{selectedMovie.imdbVotes}}</dd >
+                    </dl >
+
+                </div >
+            </div >
+
+        </div >
+    </div >
+</div >
