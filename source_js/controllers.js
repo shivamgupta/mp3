@@ -11,7 +11,8 @@ app.controller('MoviesListController', ['$scope', '$http', function ($scope, $ht
 		$scope.selectedRank = rank;
 		$scope.selectedMovie = $scope.movies[rank];
 	};
-
+	
+	/*Udemy - AngularJS Course*/
 	$scope.sensitiveSearch = function(movie) {
 		if ($scope.search) {
 			return movie.title.indexOf($scope.search) == 0;
